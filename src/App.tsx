@@ -2,13 +2,12 @@
 import './App.css';
 import { Box, Slider } from '@mui/material';
 import { Container } from '@mui/system';
-
 import { useState,useEffect } from 'react';
 
 function App() {
 
   const [size,setSize]=useState(500)
-  const [source, setSource]=useState(["1.jpeg","2.jpeg","3.jpeg"])
+  const [source]=useState(["1.jpeg","2.jpeg","3.jpeg"])
   const [index, setIndex]=useState(0)
   const changeSize=(x:any)=>{
     console.log(x.target.value)
@@ -44,7 +43,7 @@ function App() {
           alignItems="center"
           minHeight="50vh"
         >
-          <img style={{'height': '100vh' }} src={source[index]}></img>
+          <img alt="Main view" style={{'height': '100vh' }} src={source[index]}></img>
          
         </Box>
       </Container>
