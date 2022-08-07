@@ -1,5 +1,5 @@
 import "./App.css";
-import { Box, Slider } from "@mui/material";
+import { Box, Button, Slider } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState, useEffect } from "react";
 import {
@@ -71,20 +71,11 @@ function App() {
 function AuthStatus() {
   const [dialog, setDialog] = useState(false);
   const identity = useIdentityContext();
-  const UserLog = () => {
-    console.log(identity.user);
-    return identity.isLoggedIn ? <div>user:{identity.user?.email}</div> : null;
-  };
+
   return (
     <div>
-      <button
-        className="btn"
-        style={{ maxWidth: 400, background: "darkgreen" }}
-        onClick={() => setDialog(true)}
-      >
-        LOG IN
-      </button>
-      <UserLog></UserLog>
+      <Button onClick={() => setDialog(true)}>Login</Button>
+      {identity.isLoggedIn ? <div>user:{identity.user?.email}</div> : null}
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
