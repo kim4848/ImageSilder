@@ -73,7 +73,7 @@ function AuthStatus() {
   const identity = useIdentityContext();
   const UserLog = () => {
     console.log(identity.user);
-    return <div>user:</div>;
+    return identity.isLoggedIn ? <div>user:{identity.user?.email}</div> : null;
   };
   return (
     <div>
